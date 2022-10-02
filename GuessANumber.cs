@@ -8,7 +8,6 @@ namespace GuessANumber
         {
             Random randomNumber = new Random();
 
-
             for (int level = 1; level < 4; level++)
             {
                 int computerNumber = randomNumber.Next(1, 101);
@@ -48,17 +47,20 @@ namespace GuessANumber
                         else if (playerNumber > computerNumber)
                         {
                             Console.WriteLine("Too Hight");
+                            Console.WriteLine();
                             tries--;
                         }
                         else
                         {
                             Console.WriteLine("Too Low");
+                            Console.WriteLine();
                             tries--;
                         }
                     }
                     else
                     {
                         Console.WriteLine("Invalid input.");
+                        Console.WriteLine();
                     }
                 }
 
