@@ -30,7 +30,7 @@ namespace GuessANumber
 
                 while (tries > 0)
                 {
-                    Console.WriteLine("Guess a numer (1-100): ");
+                    Console.WriteLine("Guess a number (1-100): ");
                     Console.WriteLine($"Tries left: {tries}");
 
                     string playerInput = Console.ReadLine();
