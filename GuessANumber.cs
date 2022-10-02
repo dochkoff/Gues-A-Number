@@ -7,35 +7,69 @@ namespace GuessANumber
         static void Main(string[] args)
         {
             Random randomNumber = new Random();
-            int computerNumber = randomNumber.Next(1, 101);
 
-            while (true)
+
+            for (int level = 1; level < 4; level++)
             {
-                Console.WriteLine("Guess a numer (1-100): ");
-                string playerInput = Console.ReadLine();
-                bool isValid = int.TryParse(playerInput, out int playerNumber);
+                int computerNumber = randomNumber.Next(1, 101);
+                int tries = 0;
 
-                if (isValid)
+                switch (level)
                 {
-                    if (playerNumber == computerNumber)
-                    {
-                        Console.WriteLine("You guessed it!");
+                    case 1:
+                        tries = 50;
                         break;
-                    }
-                    else if (playerNumber > computerNumber)
+                    case 2:
+                        tries = 25;
+                        break;
+                    case 3:
+                        tries = 5;
+                        break;
+                }
+
+                Console.WriteLine($"LEVEL {level}");
+
+                while (tries > 0)
+                {
+                    Console.WriteLine("Guess a numer (1-100): ");
+                    Console.WriteLine($"Tries left: {tries}");
+
+                    string playerInput = Console.ReadLine();
+                    bool isValid = int.TryParse(playerInput, out int playerNumber);
+
+                    if (isValid)
                     {
-                        Console.WriteLine("Too Hight");
+                        if (playerNumber == computerNumber)
+                        {
+                            Console.WriteLine("You guessed it!");
+                            Console.WriteLine();
+                            break;
+                        }
+                        else if (playerNumber > computerNumber)
+                        {
+                            Console.WriteLine("Too Hight");
+                            tries--;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Too Low");
+                            tries--;
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("Too Low");
+                        Console.WriteLine("Invalid input.");
                     }
                 }
-                else
+
+                if (tries == 0)
                 {
-                    Console.WriteLine("Invalid input.");
+                    Console.WriteLine("Game Over");
+                    return;
                 }
             }
+
+            Console.WriteLine("You Win!");
         }
     }
 }
