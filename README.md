@@ -20,7 +20,7 @@ The computer select random number, then returns information whether the number i
 
 ## Solution
 - Create a variable from type "Random", which will help us choose a number randomly by using the method "Next()". We will use this method so each time the computer can choose a number between "1 and 100" randomly.
-- With switch statement we check on which level is the player.
+- With conditional statements switch-case we check on which level is the player.
 - With a while-loop to iterate, until the player guesses the computer's random number. 
 - Now check the player's input using the int.TryParse() method. It will review the input data and return us "true" or "false" depending on the data submitted by the player. If It's a number (what we expect) the method will return "true" otherwise "false".
 - If data is valid a nested if-else statement will check all three possible cases. 
